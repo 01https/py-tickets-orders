@@ -100,7 +100,7 @@ class MovieSessionViewSet(viewsets.ModelViewSet):
             date_obj = datetime.strptime(date, "%Y-%m-%d").date()
             queryset = queryset.filter(show_time__date=date_obj)
 
-        if self.action in "retrieve":
+        if self.action == "retrieve":
             return queryset.select_related("movie")
 
         if self.action == "list":
